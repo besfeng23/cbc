@@ -1,0 +1,65 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/the-club",
+      "destination": "/"
+    },
+    {
+      "source": "/stay",
+      "destination": "/"
+    },
+    {
+      "source": "/dining",
+      "destination": "/"
+    },
+    {
+      "source": "/club-life",
+      "destination": "/"
+    },
+    {
+      "source": "/club",
+      "destination": "/"
+    },
+    {
+      "source": "/membership",
+      "destination": "/"
+    },
+    {
+      "source": "/events",
+      "destination": "/"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/"
+    },
+    {
+      "source": "/contact",
+      "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
+      ]
+    }
+  ]
+}
