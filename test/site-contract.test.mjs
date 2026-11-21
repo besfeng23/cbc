@@ -33,3 +33,13 @@ test('Singapore preview does not represent membership or residential services as
   assert.match(html, /No residential enrollment is open/);
   assert.doesNotMatch(html, /SGD\s*6,?000|S\$\s*6,?000/i);
 });
+
+test('all routes declare noindex while robots permits crawlers to observe it', () => {
+  const policy = config.headers.find(item => item.source === '/(.*)');
+  assert.ok(policy);
+  assert.equal(policy.headers.find(item => item.key === 'X-Robots-Tag')?.value, 'noindex, nofollow, noarchive');
+  const robots = source('robots.txt');
+  assert.match(robots, /^User-agent: \*\nAllow: \/\n/);
+  assert.doesNotMatch(robots, /Disallow: \//);
+  assert.match(html, /name="robots" content="noindex,nofollow"/);
+});
