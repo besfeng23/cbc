@@ -4,39 +4,39 @@
   "rewrites": [
     {
       "source": "/the-club",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/stay",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/dining",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/club-life",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/club",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/membership",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/events",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/gallery",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/contact",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ],
   "headers": [
