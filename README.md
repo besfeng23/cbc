@@ -37,3 +37,12 @@ Production extensions should reuse the PLP Boracay membership API model only aft
 ## Shared editorial PLP crest (uploaded owner brand pack, 2026-11-21)
 
 The original PLP Editorial Brand Pack is the source of truth. This repository now includes the **exact source bytes** of the brown-on-ivory vector crest, reversed ivory crest, web PNG/WebP, 512px app icon, 32/64px favicons, 180px Apple touch icon, and their author-provided USAGE instructions. Every asset was checked against the ZIP source via Git blob SHA-1. The global navigation swaps reversed ivory on dark photo backgrounds for the master brown vector on pale headers. The footer displays reversed ivory; browser/PWA icons use the supplied file variants. The text label 'Changi' is independent of the crest. No other PLP location's identity or images are reused.
+
+
+## Oval-only browser / mobile icon correction — 2026-11-21
+
+The owner's mobile screenshot showed a pale **square tile** surrounding the true oval monogram in Chrome's address suggestions. The original uploaded favicon-32.png, favicon-64.png and apple-touch-icon-180.png files were opaque across their entire square backgrounds. All browser/PWA PNG variants have now been **derived from the owner-supplied 4K transparent PLP master artwork**: alpha bounds cropped, oval faithfully resampled and proportionally centered on a square but fully transparent canvas. The oval artwork has not been redesigned.
+
+Transparent RGBA replacements: 16/32/64px favicons, 180px Apple touch icon, 192px Android/PWA icon and 512px square app icon. Also added a transparent legacy favicon.ico. All have transparent RGBA=(0,0,0,0) corners. The existing original master SVG favicon stays transparent and unchanged. HTML icon/manifest links and manifest icon src now use a version query (`?v=oval-only-20261121`) so mobile browser caching is less likely to retain the previous square artwork. OS/browser-created tile frames are outside website control; the supplied assets no longer contain a cream background square.
+
+PLP Boracay uses the identical derived set. This was an icon-only modification; the Singapore concept page, Club status, and Boracay data are unchanged.
