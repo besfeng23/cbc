@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# The conceptual PLP Changi site is tagged noindex by HTTP and HTML metadata.
+# Crawlers may fetch pages to observe and respect the noindex instruction.
