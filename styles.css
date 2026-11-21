@@ -5,3 +5,31 @@
 @media(max-width:700px){.notice{font-size:9px;letter-spacing:.04em}.brand-text strong{font-size:11px;letter-spacing:.13em}.brand-text small{font-size:8px}.brand-mark{width:36px;height:36px}.hero-home{min-height:calc(100svh - 27px)}.hero-content{padding:160px 25px calc(112px + var(--safe-bottom))}.hero h1{font-size:clamp(58px,14vw,95px);line-height:.9}.hero-inner{min-height:72svh}.hero-inner h1{font-size:clamp(58px,13.7vw,80px)}.hero-lead{font-size:16px}.hero-discover{display:none}.hero-footnote{font-size:9px;line-height:1.7}.actions{gap:15px;align-items:flex-start;flex-direction:column}.actions .button{min-width:192px}.section{padding:72px 24px}.section-intro{display:block;margin-bottom:32px}.section-intro p{margin-top:10px}.section h2,.story-copy h2,.dark-band h2{font-size:clamp(42px,10vw,66px)}.editorial-three,.editorial-two,.editorial-four,.numbers-row,.chapter-grid,.gallery-grid{grid-template-columns:1fr}.editorial-grid{gap:45px}.story-section{display:block}.story-img{min-height:0}.story-img img{height:auto;aspect-ratio:4/3}.story-copy{padding:60px 24px}.numbers-row{gap:0}.numbers-row>div{border-bottom:1px solid #ddd5c9;padding-bottom:15px}.band-layout{display:block;padding:64px 24px}.inner-hero{padding:138px 24px 52px}.inner-hero h1{font-size:clamp(58px,12vw,80px)}.inner-hero>p:not(.eyebrow){font-size:16px}.split-layout,.interest-section,.contact-grid{grid-template-columns:1fr;gap:26px}.programs .editorial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.program-card h3{font-size:26px}.program-card p{font-size:13px}.photo-note{font-size:11px}.contact-aside{padding:30px}.contact-line{font-size:27px}.site-footer{padding:70px 24px 115px}.footer-top{display:block;padding-bottom:50px}.footer-links{gap:50px;margin-top:50px}.footer-bottom{display:block}.footer-bottom p{margin-bottom:12px}.mobile-actions{position:fixed;bottom:0;left:0;right:0;z-index:55;display:grid;grid-template-columns:1.2fr .8fr;gap:7px;padding:7px 12px calc(7px + var(--safe-bottom));background:#fafaf7ef;box-shadow:0 -5px 24px #0002;backdrop-filter:blur(15px)}.mobile-actions a{min-height:49px;display:flex;align-items:center;justify-content:center;background:#272920;color:#fff;font-size:12px;font-weight:600}.mobile-actions a:last-child{background:#e7e2d5;color:#24251e}.empty-calendar{align-items:flex-start}.empty-calendar h3{font-size:24px}.footer-brand{font-size:40px}}
 @media(max-width:380px){.programs .editorial-grid{grid-template-columns:1fr}.brand-text strong{font-size:10px}.hero h1{font-size:58px}.footer-links{gap:30px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Changi 2026-11-21 mobile photo remediation: never show a scraped venue's STOP placeholder. */
+.hero{background-color:#203139;background-image:linear-gradient(160deg,#182833d0,#0b292d77),url('/coastline.svg');background-position:center;background-size:cover}
+.hero .hero-img{object-position:center center}
+.hero .hero-shade{background:linear-gradient(90deg,rgba(5,14,17,.71) 0%,rgba(5,18,21,.41) 63%,rgba(8,22,23,.17) 100%)}
+.brand-mark img{width:100%;height:100%;object-fit:contain}
+.editorial-placeholder{width:100%;height:100%;min-height:200px;background:radial-gradient(ellipse at 77% 14%,#dfd1b4 0%,transparent 36%),linear-gradient(144deg,#e3ded2,#aeb4a9 60%,#6f807d);color:#242921;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(20px,2.7vw,44px);gap:12px}
+.editorial-placeholder span{font-size:9px;font-weight:700;letter-spacing:.17em}
+.editorial-placeholder strong{font:400 clamp(20px,2.2vw,33px)/1.1 var(--serif);max-width:245px}
+.photo-credit{border-top:1px solid #565b51;margin-top:16px;padding-top:18px;font-size:11px;color:#c6c5bb;line-height:1.75}
+.photo-credit a{text-decoration:underline;text-underline-offset:3px}
+.photo-credit a:hover{color:#f7e8bc}
+.mobile-actions{display:none!important}
+@media(max-width:700px){
+ .notice{font-size:8px;padding:5px 12px;min-height:23px;line-height:1.35;letter-spacing:.09em}
+ .hero-home{min-height:calc(100svh - 23px)}
+ .hero-content{padding-top:clamp(150px,19vh,190px);padding-bottom:clamp(42px,7vh,85px)}
+ .hero-inner .hero-content{padding-bottom:55px}
+ .hero .hero-eyebrow{font-size:10px;letter-spacing:.14em;line-height:1.7;margin-bottom:22px}
+ .hero .hero-lead{max-width:22rem;margin-bottom:24px;font-size:15px;line-height:1.7}
+ .hero h1{font-size:clamp(65px,15vw,96px);margin-bottom:24px}
+ .hero .actions{gap:10px;align-items:flex-start}
+ .hero .actions .button{min-height:50px;padding:11px 21px;min-width:unset}
+ .hero .text-link{min-height:45px}
+ .hero .hero-footnote{margin-top:26px}
+ .site-footer{padding-bottom:45px}
+ .hero-shade{background:linear-gradient(90deg,rgba(4,12,15,.76),rgba(4,13,16,.38))}
+ .editorial-placeholder{min-height:265px;padding:24px}
+}
