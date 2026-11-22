@@ -1,0 +1,14 @@
+{
+  "name": "plp-changi-public-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check:viewport": "node scripts/check-viewport-contract.mjs",
+    "build": "npm test && npm run check:viewport && node --check site.js && node --check analytics.js && node scripts/build-static.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
