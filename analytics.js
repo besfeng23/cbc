@@ -99,7 +99,7 @@
         loaded(client) {
           posthog = client;
           if (consent === 'allow' && publicPath()) client.opt_in_capturing();
-          recordPage();
+          if (consent === 'allow' && publicPath()) { client.opt_in_capturing(); recordPage(); }
         }
       });
       document.head.appendChild(script);
@@ -144,6 +144,17 @@
     }
   }
   function hideConsent() { document.getElementById('plp-analytics-consent')?.remove(); }
+  function ensureSettings() {
+    if (document.getElementById('plp-analytics-settings')) return;
+    const settings = document.createElement('button');
+    settings.id = 'plp-analytics-settings';
+    settings.className = 'plp-analytics-settings';
+    settings.type = 'button';
+    settings.textContent = 'Privacy';
+    settings.setAttribute('aria-label', 'Change analytics preferences');
+    settings.addEventListener('click', showConsent);
+    document.body.appendChild(settings);
+  }
   function showConsent() {
     let panel = document.getElementById('plp-analytics-consent');
     if (!panel) {
@@ -159,22 +170,15 @@
       });
       document.body.appendChild(panel);
     }
-    if (!document.getElementById('plp-analytics-settings')) {
-      const settings = document.createElement('button');
-      settings.id = 'plp-analytics-settings';
-      settings.className = 'plp-analytics-settings';
-      settings.type = 'button';
-      settings.textContent = 'Privacy';
-      settings.setAttribute('aria-label', 'Change analytics preferences');
-      settings.addEventListener('click', showConsent);
-      document.body.appendChild(settings);
-    }
+    ensureSettings();
   }
   function setConsent(value) {
     if (value !== 'allow' && value !== 'deny') return;
     consent = value;
+    lastPath = '';
     try { localStorage.setItem(CONSENT_KEY, value); } catch {}
     if (value === 'allow') {
+      if (config?.googleId) window['ga-disable-' + config.googleId] = false;
       loadGoogleAnalytics();
       loadPostHog().then(client => { if (client && publicPath()) { client.opt_in_capturing(); recordPage(); } }).catch(() => {});
     } else {
@@ -193,7 +197,10 @@
     .then(response => response.ok ? response.json() : null)
     .then(value => {
       config = value;
+      if (!config || (!config.googleId && !config.posthog)) return;
+      ensureSettings();
       if (consent === 'allow') {
+        if (config?.googleId) window['ga-disable-' + config.googleId] = false;
         loadGoogleAnalytics();
         loadPostHog().then(client => { if (client && publicPath()) { client.opt_in_capturing(); recordPage(); } }).catch(() => {});
       } else if (consent === 'unset') showConsent();
